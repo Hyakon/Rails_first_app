@@ -1,0 +1,36 @@
+# Add to end end of ~/.zshrc to avoid the warning rails 5.2 et ruby 7.1.1
+export RUBYOPT='-W:no-deprecated -W:no-experimental'
+
+# Commande Rails
+
+# Create migration
+rails generate migration nom_de_ta_migration # Cree une migration / BD (modifie create)
+rails generate migration CreateTable # Cree table
+
+# Migrate
+rails db:migrate # Passe en up toute les migrations
+rails db:migrate:status # Tableau de migration avec Status Up / Down
+rails db:rollback # Revient sur la derniere migration (Down)
+
+# Use Seed
+rails db:seed
+
+# Generate model
+rails generate model User 
+
+# Generate model with argument
+rails generate model User email:string is_admin:boolean
+
+# Convention
+Table de BD = Pluriel + snake_case => Ex : Table ~ human_users.
+Classe du model= Singulier + CamelCase => Ex : Classe ~ HumanUser.
+Fichier du model = Singulier + snake_case => Ex : Model ~ human_user.rb
+
+# Methode
+my_user.create(email: "test@gmail.com") # Cree un utilisateur en DB
+my_user.update(email: "quick@gmail.com") # Modifie en DB
+
+# Gem
+gem 'table_print'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
